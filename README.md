@@ -30,8 +30,8 @@ Il utilise plusieurs modèles de classification, dont **Naive Bayes**, **SVM** e
 
 1. **Cloner le dépôt**
 ```bash
-git clone https://github.com/codeangel223/Spam-Detection-IN-SMS-NLP
-cd Spam-Detection-IN-SMS-NLP
+git clone https://github.com/codeangel223/SMS-Detection-SPAM.git
+cd SMS-Detection-SPAM
 ```
 
 2. **Créer et activer l'environnement virtuel**
