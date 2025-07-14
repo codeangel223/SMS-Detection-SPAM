@@ -10,70 +10,89 @@
 ## 📌 Présentation du projet
 
 Ce projet est un système de **détection de spams dans les SMS**, basé sur les techniques de **traitement du langage naturel (NLP)** et le **Machine Learning**.  
-Il utilise plusieurs modèles de classification, dont **Naive Bayes**, **SVM** et **Régression Logistique**, pour déterminer si un message est **normal** ou **indésirable (spam)**.
+Il utilise plusieurs modèles de classification, dont **Naive Bayes**, **SVM** et **Random Forest**, pour déterminer si un message est **normal** ou **indésirable (spam)**.
 
 ---
 
-## ⚙️ Fonctionnalités
+## 🧰 Prérequis et Installation
 
-- Nettoyage et prétraitement des données (stopwords, ponctuation, doublons)
-- Analyse exploratoire des données (EDA)
-- Vectorisation des textes avec **TF-IDF**
-- Entraînement de plusieurs modèles de machine learning
-- Sélection automatique du **modèle le plus performant**
-- Application en ligne de commande pour la prédiction de nouveaux SMS
-
----
-
-## 🧰 Prérequis
-
-Voici les dépendances nécessaires pour exécuter le projet :
-
+### Dépendances nécessaires
 - [Python 3.x](https://www.python.org/downloads/)
 - pandas
 - numpy
 - scikit-learn
 - nltk
-- ....
+- matplotlib
+- seaborn
+- wordcloud
 
-Installation des paquets :
+### Installation
 
+1. **Cloner le dépôt**
+```bash
+git clone https://github.com/codeangel223/Spam-Detection-IN-SMS-NLP
+cd Spam-Detection-IN-SMS-NLP
+```
+
+2. **Créer et activer l'environnement virtuel**
+
+**Sur Windows :**
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+**Sur macOS/Linux :**
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+3. **Installer les dépendances**
 ```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## 📂 Le Dataset
+## 📂 Dataset et Données
 
 Le jeu de données contient environ **5 572 SMS**, chacun étiqueté comme suit :
 
 - `spam` : message indésirable
 - `ham` : message normal (non-spam)
 
-Ce dataset est disponible sur Kaggle.
+**Source :** [French Spam SMS Dataset](https://www.kaggle.com/datasets/rajnathpatel/multilingual-spam-data?utm_source=chatgpt.com)
 
 ---
 
-## 🧠 Structure du code
+## 🔬 Méthodologie
 
-### 🔹 Partie 1 — Préparation des données
-
+### 🔹 1. Préparation des données
 1. **Chargement du dataset**
 2. **Nettoyage du texte** (suppression des stopwords, ponctuations, doublons)
 3. **Analyse exploratoire des données (EDA)**
 4. **Vectorisation des messages** via TF-IDF
 5. **Découpage** des données en ensembles d'entraînement et de test
 
-### 🔹 Partie 2 — Entraînement et évaluation des modèles
-
-Trois modèles ont été entraînés :
-
+### 🔹 2. Modèles implémentés
+Trois modèles de machine learning ont été entraînés et comparés :
 - **Naive Bayes**
 - **SVM (Support Vector Machine)**
 - **Random Forest**
 
-### 🔍 Comparaison des modèles
+### 🔹 3. Évaluation des modèles
+Les modèles ont été évalués selon les métriques suivantes :
+- Accuracy (Exactitude)
+- Precision (Précision)
+- Recall (Rappel)
+- F1-score
+
+---
+
+## 📊 Résultats et Analyse
+
+### Comparaison des performances
 
 | Modèle                | Accuracy | Precision | Recall | F1-score |
 | --------------------- | -------- | --------- | ------ | -------- |
@@ -81,9 +100,13 @@ Trois modèles ont été entraînés :
 | SVM                   | 0.98     | 0.97      | 0.94   | 0.955    |
 | Random Forest         | 0.97     | 0.96      | 0.92   | 0.94     |
 
-✅ **Modèle sélectionné** : **SVM**, car il présente le meilleur compromis entre précision, rappel et F1-score.
+### Analyse critique des résultats
 
-#### 📊 Performances détaillées des modèles
+✅ **Modèle sélectionné** : **SVM (Support Vector Machine)**
+
+**Justification :** Le modèle SVM présente le meilleur compromis entre précision, rappel et F1-score avec une accuracy de 98%, ce qui en fait le choix optimal pour cette tâche de classification.
+
+#### Performances détaillées par modèle
 
 **Naive Bayes**
 <p align="center">
@@ -102,9 +125,25 @@ Trois modèles ont été entraînés :
 
 ---
 
-## 💻 Démo en ligne de commande
+## 💻 Code Python Documenté
 
-L'application permet de prédire en ligne de commande si un message est un **spam** ou non.
+Le code source est organisé en plusieurs modules :
+
+- `app.ipynb` : 
+  - Nettoyage, 
+  - préparation des données, 
+  - Entraînement des modèles et 
+  - Évaluation et comparaison des modèles
+- `run.py` : Interface en ligne de commande (CLI)
+
+### Utilisation de l'interface CLI
+
+4. **Lancer l'application CLI**
+```bash
+python run.py
+```
+
+Saisissez un message lorsque demandé, et le programme indiquera s'il s'agit de **SPAM** ou de **NORMAL**.
 
 <p align="center">
   <img src="Images/cli_apptest.png" alt="Démo CLI de l'application"/>
@@ -112,35 +151,46 @@ L'application permet de prédire en ligne de commande si un message est un **spa
 
 ---
 
-## 🚀 Lancer le projet
+## 📋 Rapport Structuré
 
-1. **Cloner le dépôt**
+### 1. Exploration des données
+- Analyse de la distribution des classes (spam/ham)
+- Statistiques descriptives des messages
+- Visualisation des mots les plus fréquents
 
-```bash
-git clone https://github.com/codeangel223/Spam-Detection-IN-SMS-NLP
-```
+### 2. Méthodologie appliquée
+- Techniques de préprocessing du texte
+- Stratégies de vectorisation (TF-IDF)
+- Validation croisée et métriques d'évaluation
 
-```bash
-cd Spam-Detection-IN-SMS-NLP
-```
+### 3. Résultats obtenus
+- Performances comparatives des modèles
+- Matrice de confusion
+- Analyse des erreurs de classification
 
-2. **(Optionnel)** Entraîner à nouveau les modèles via le notebook ou script Python.
+### 4. Analyse critique
+- Forces et faiblesses de chaque approche
+- Limitations du dataset
+- Perspectives d'amélioration
 
-3. **Lancer l'application CLI**
+---
 
-```bash
-python run.py
-```
+## 🔄 Fonctionnalités Implémentées
 
-Saisissez un message lorsque demandé, et le programme indiquera s'il s'agit de **SPAM** ou de **NORMAL**.
+- ✅ Nettoyage et prétraitement des données (stopwords, ponctuation, doublons)
+- ✅ Analyse exploratoire des données (EDA)
+- ✅ Vectorisation des textes avec **TF-IDF**
+- ✅ Entraînement de plusieurs modèles de machine learning
+- ✅ Sélection automatique du **modèle le plus performant**
+- ✅ **Interface en ligne de commande (CLI)** pour la prédiction de nouveaux SMS
 
 ---
 
 ## 📚 Références
 
-- [Détection de spam avec le ML](https://bit.ly/3nwiKtA)
-- [Algorithme Naive Bayes](https://bit.ly/3zc9SLH)
-- [Évaluation de modèles](https://bit.ly/3B12VOO)
+- [Scikit-learn Documentation](https://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html)
+- [French Spam SMS Dataset](https://www.kaggle.com/datasets/rajnathpatel/multilingual-spam-data?utm_source=chatgpt.com)
+- Documentation NLTK pour le traitement du langage naturel
 
 ---
 
