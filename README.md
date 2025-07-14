@@ -1,9 +1,9 @@
 <!-- PROJECT TITLE -->
-<h1 align="center">Email Spam Detection</h1>
+<h1 align="center">SMS Spam Detection</h1>
 
 <!-- HEADER -->
 <p align="center">
-  <img src="Images/Email_Spam_Detection_Cover.png"/>
+  <img src="Images/SPAM-DETECTION.png"/>
 </p>
 
 <!-- PROJECT DESCRIPTION -->
