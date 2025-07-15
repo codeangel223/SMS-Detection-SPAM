@@ -25,6 +25,7 @@ Il utilise plusieurs modèles de classification, dont **Naive Bayes**, **SVM** e
 - matplotlib
 - seaborn
 - wordcloud
+- gradio
 
 ### Installation
 
@@ -135,6 +136,7 @@ Le code source est organisé en plusieurs modules :
   - Entraînement des modèles et 
   - Évaluation et comparaison des modèles
 - `run.py` : Interface en ligne de commande (CLI)
+- `gradio_app.py` : Application web avec interface Gradio
 
 ### Utilisation de l'interface CLI
 
@@ -148,6 +150,39 @@ Saisissez un message lorsque demandé, et le programme indiquera s'il s'agit de 
 <p align="center">
   <img src="Images/cli_apptest.png" alt="Démo CLI de l'application"/>
 </p>
+
+---
+
+## 🌐 App Web
+
+### Interface Gradio
+
+L'application dispose également d'une **interface web interactive** développée avec **Gradio**, permettant une utilisation plus conviviale et accessible.
+
+#### Fonctionnalités de l'interface web :
+- ✅ **Interface utilisateur intuitive** avec zone de saisie de texte
+- ✅ **Prédiction en temps réel** du statut du message (SPAM/NORMAL)
+- ✅ **Affichage du score de confiance** du modèle
+- ✅ **Historique des prédictions** récentes
+- ✅ **Interface responsive** compatible mobile et desktop
+
+#### Lancement de l'application web
+
+```bash
+python ui.py
+```
+
+L'application se lance automatiquement dans votre navigateur à l'adresse : `http://localhost:7860`
+
+<p align="center">
+  <img src="Images/interface-gradio.png" alt="Interface web Gradio"/>
+</p>
+
+#### Avantages de l'interface web :
+- **Accessibilité** : Pas besoin de connaissances techniques
+- **Partage facile** : Possibilité de partager l'application via un lien public
+- **Déploiement simple** : Compatible avec Hugging Face Spaces, Heroku, etc.
+- **Expérience utilisateur optimisée** : Interface moderne et responsive
 
 ---
 
@@ -183,6 +218,8 @@ Saisissez un message lorsque demandé, et le programme indiquera s'il s'agit de 
 - ✅ Entraînement de plusieurs modèles de machine learning
 - ✅ Sélection automatique du **modèle le plus performant**
 - ✅ **Interface en ligne de commande (CLI)** pour la prédiction de nouveaux SMS
+- ✅ **Application web interactive** avec Gradio
+- ✅ **Déploiement facile** sur différentes plateformes
 
 ---
 
@@ -191,6 +228,7 @@ Saisissez un message lorsque demandé, et le programme indiquera s'il s'agit de 
 - [Scikit-learn Documentation](https://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html)
 - [French Spam SMS Dataset](https://www.kaggle.com/datasets/rajnathpatel/multilingual-spam-data?utm_source=chatgpt.com)
 - Documentation NLTK pour le traitement du langage naturel
+- [Gradio Documentation](https://gradio.app/docs/)
 
 ---
 
